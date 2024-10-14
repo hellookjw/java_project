@@ -1,10 +1,7 @@
-//다 해결 못했습니다..
-
 public class Car {
-    private int gas;
-    private String carName;
+    int gas;
+    String carName;
 
-   
     Car(){}
     Car(String carName){this.carName=carName;}
     Car(int gas){this.gas=gas;}
@@ -13,40 +10,45 @@ public class Car {
         this.carName=carName;
     }
 
+    
     void setGas(int gas) {
         this.gas=gas;
+
     }
     int getGas() {
         return gas;
     }
-    void setCasName(String carName) {
+    void setcarName(String carName) {
         this.carName=carName;
-   }
-    String getCarName() {
+
+    }
+    String getcarName() {
         return carName;
     } //어떻게 하는거지
     
     int move(int gas){
-        if(this.gas >= gas){
-        	this.gas-=gas;
-            System.out.println(getCarName() + " move, resume gas: " + this.gas);
+        if(gas <= this.gas){
+            this.gas-=gas;
+            System.out.println(getcarName() + " move, resume gas: " + getGas());
+            return this.gas;
             
         } else {
-        	
-            System.out.println(getCarName() + " out of gas. resume gas: " + this.gas); 
+            
+            System.out.println(getcarName() + " out of gas. resume gas: " + this.gas); 
+            
         }
-		return this.gas;
-		
+        return this.gas;
+        
+
     }
     int refuel(int amount) {
-        amount += 10;
-        this.gas += amount; //가스추가???
-        System.out.println("fuel amount: " + amount + ", resume fuel:" + this.gas);
-        return this.gas; 
+        gas += amount; //가스추가
+        System.out.println("fuel amount: " + amount + ", resume fuel:" + gas);
+        return gas;
         
     }
 
-    class Main{
+    
         public static void main(String[] args) {
             Car[] cars = new Car[4];
             String[] carNames = {"kia", "ferrari", "bmw", "toyota"};
@@ -57,15 +59,17 @@ public class Car {
             }
     
             for (int i = 0; i < 7; i++) {   //반복이 7번
-                for (Car car:cars) {
-                    if () {
-                        
+                for (Car car: cars) {
+                    if (car.move(5)<5){
+                        car.refuel(10);
                     }
                     System.out.println();
                 }
             }
         }
+    // 결과값이 kia move, resume gas: 0 fuel amount: 10, resume fuel:10 이렇게 나오는데 왜인지 모르겠습니다
+
+
     
-    }
     
 }
