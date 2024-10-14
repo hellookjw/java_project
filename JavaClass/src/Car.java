@@ -1,46 +1,47 @@
-public class Car {
-    int gas;
-    String carName;
+//다 해결 못했습니다..
 
+public class Car {
+    private int gas;
+    private String carName;
+
+   
     Car(){}
-    Car(String carName){}
-    Car(int gas){}
+    Car(String carName){this.carName=carName;}
+    Car(int gas){this.gas=gas;}
     Car(String carName, int gas){
         this.gas=gas;
         this.carName=carName;
     }
 
-    
     void setGas(int gas) {
         this.gas=gas;
-
     }
     int getGas() {
         return gas;
     }
     void setCasName(String carName) {
         this.carName=carName;
-
-    }
+   }
     String getCarName() {
         return carName;
     } //어떻게 하는거지
     
     int move(int gas){
-        if(gas>=5){
-            gas -= 5;
-            System.out.println(carName + " move, resume gas: " + gas);
+        if(this.gas <= 5){
+            System.out.println(getCarName() + " move, resume gas: " + getGas());
             
         } else {
-            System.out.println(carName + " out of gas. resume gas: " + gas); //결과창은 음수가 아니라 그냥 그대로 나오는데..
+        	this.gas-=gas;
+            System.out.println(getCarName() + " out of gas. resume gas: " + getGas()); 
         }
-
+		return 
+		
     }
     int refuel(int amount) {
         amount += 10;
-        gas += amount; //가스추가
-        System.out.println("fuel amount: " + amount + ", resume fuel:" + gas);
-        return gas;
+        this.gas += amount; //가스추가???
+        System.out.println("fuel amount: " + amount + ", resume fuel:" + getGas());
+        return ; 
         
     }
 
@@ -55,7 +56,7 @@ public class Car {
             }
     
             for (int i = 0; i < 7; i++) {   //반복이 7번
-                for (int j=0; j<??; j++) {
+                for () {
                     if () {
                         
                     }
